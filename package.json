@@ -6,10 +6,9 @@
   "dev": "next dev",
   "start": "next start",
   "build": "next build",
-  "export": "next export",
-  "predeploy": "npm run build && npm run export",
-  "deploy": "gh-pages -d out",
-  "deploy-github": "npm run predeploy && npm run deploy"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out",
+    "deploy-github": "npm run predeploy && npm run deploy"
 },
 
   "dependencies": {

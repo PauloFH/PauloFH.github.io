@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import PhotoProfile from '@/resources/images/photo-profile.jpg';
 
 const AboutMe: React.FC = () => {
   return (
@@ -10,7 +9,7 @@ const AboutMe: React.FC = () => {
         <div className="flex flex-col items-center">
           <div className="w-48 h-48 rounded-full overflow-hidden mb-8">
             <Image
-              src={PhotoProfile}
+              src="./resources/images/photo-profile.jpg"
               alt="Paulo Holanda"
               width={192}
               height={192}

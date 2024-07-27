@@ -3,15 +3,15 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Projects from '../components/Projects'
 import AboutMe from '../components/AboutMe'
-import Footer from '@/components/footer'
-import ScrollToTopButton from '@/components/ScrollToTopButton'
+import Footer from '../components/footer'
+import ScrollToTopButton from '../components/ScrollToTopButton'
 const Home: NextPage = () => {
   return (
     <div>
       <Head>
         <title>Meu Portfólio</title>
         <meta name="description" content="Portfólio pessoal criado com Next.js, TypeScript e Tailwind CSS" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="./favicon.ico" />
       </Head>
       <Header />
       <main>
