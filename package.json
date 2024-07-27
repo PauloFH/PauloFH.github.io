@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
 "scripts": {
+  "dev": "next dev",
+  "start": "next start",
   "build": "next build",
   "export": "next export",
   "predeploy": "npm run build && npm run export",
