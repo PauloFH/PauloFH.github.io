@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import MobileMenu from './MobileMenu';
-
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -31,7 +30,7 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <div className="w-12 h-12 rounded-full overflow-hidden mr-3">
             <Image 
-              src="./resources/images/android-chrome-512x512.png"
+              src='../images/android-chrome-512x512.png'
               alt="Logo" 
               width={48} 
               height={48}

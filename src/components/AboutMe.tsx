@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-
 const AboutMe: React.FC = () => {
   return (
     <section id="sobre" className="py-16 pt-24 bg-fuchsia-950">
@@ -9,7 +8,7 @@ const AboutMe: React.FC = () => {
         <div className="flex flex-col items-center">
           <div className="w-48 h-48 rounded-full overflow-hidden mb-8">
             <Image
-              src="./resources/images/photo-profile.jpg"
+              src="../images/photo-profile.jpg"
               alt="Paulo Holanda"
               width={192}
               height={192}

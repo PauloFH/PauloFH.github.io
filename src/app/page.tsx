@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Meu Portfólio</title>
         <meta name="description" content="Portfólio pessoal criado com Next.js, TypeScript e Tailwind CSS" />
-        <link rel="icon" href="./favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <main>
