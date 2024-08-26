@@ -590,7 +590,7 @@ const Home: NextPage = () => {
               <div className="flex flex-row flex-wrap items-center justify-between">
                 <Skill
                   icon={ 
-                    <img src = "../images/maui-logo.svg" alt="MAUI SVG LOGO" width="26" height="26" x="6" y="6"/>
+                    <img src = "../images/maui-logo.svg" alt="MAUI SVG LOGO" width="26" height="26"/>
 
                   }
                   name="Maui"
