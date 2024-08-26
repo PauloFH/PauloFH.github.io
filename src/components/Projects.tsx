@@ -78,7 +78,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projetos" className="py-12 bg-gray-100">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-fuchsia-950">Meus Projetos</h2>
+        <h2 className="text-3xl font-bold mb-8 text-blue-950">Meus Projetos</h2>
         
         {isLoading ? (
           <div className="text-center py-10">
@@ -92,7 +92,7 @@ const Projects: React.FC = () => {
           <>
             <div className="mb-6">
               <button 
-                className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === 'All' ? 'bg-fuchsia-900 text-white' : 'bg-gray-200 text-gray-700'}`}
+                className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === 'All' ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-700'}`}
                 onClick={() => handleTabClick('All')}
               >
                 All
@@ -100,7 +100,7 @@ const Projects: React.FC = () => {
               {topics.map((topic) => (
                 <button 
                   key={topic}
-                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === topic ? 'bg-fuchsia-900 text-white' : 'bg-gray-200 text-gray-700'}`}
+                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === topic ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-700'}`}
                   onClick={() => handleTabClick(topic)}
                 >
                   {topic}
@@ -109,7 +109,7 @@ const Projects: React.FC = () => {
               {languages.map((language) => (
                 <button 
                   key={language}
-                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === language ? 'bg-fuchsia-900 text-white' : 'bg-gray-200 text-gray-700'}`}
+                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === language ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-700'}`}
                   onClick={() => handleTabClick(language)}
                 >
                   {language}
@@ -119,7 +119,7 @@ const Projects: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {displayedProjects.map((project) => (
-                <div key={project.id} className="bg-fuchsia-900 p-6 rounded shadow">
+                <div key={project.id} className="bg-blue-900 p-6 rounded shadow">
                   <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
                   <p className="text-white mb-4">{project.description || 'No description'}</p>
                   <div className="mb-4">
@@ -137,7 +137,7 @@ const Projects: React.FC = () => {
                   </p>
                   <a
                       href={project.html_url}
-                      className="block w-full text-center bg-white text-fuchsia-900 font-bold py-2 px-4 rounded hover:bg-fuchsia-100 transition duration-300"
+                      className="block w-full text-center bg-white text-blue-900 font-bold py-2 px-4 rounded hover:bg-blue-100 transition duration-300"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

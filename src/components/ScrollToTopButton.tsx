@@ -31,7 +31,7 @@ const ScrollToTopButton: React.FC = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-fuchsia-900 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110"
+          className="fixed bottom-6 right-6 bg-blue-900 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110"
           style={{ animation: 'slide-in 0.5s forwards' }}
         >
           <FaArrowUp />

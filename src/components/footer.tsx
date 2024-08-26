@@ -1,11 +1,13 @@
 "use client";
-
-import React from 'react';
+import React from "react";
+import { IconContext } from "react-icons";
+import { socials } from "../constants/socials";
+import Link from "next/link";
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'; // Importa ícones do Font Awesome
 
 const Footer: React.FC = () => {
   return (
-    <section id="contato" className="py-12 bg-fuchsia-900 text-white">
+    <section id="contato" className="py-12 bg-blue-900 text-white">
       <div className="container mx-auto text-center"> {/* Centraliza o texto */}
         <h2 className="text-3xl font-bold mb-4">Contato</h2>
         <p className="text-lg mb-4">
