@@ -30,12 +30,12 @@ export const metadata = {
   msapplication: {
     TileColor: '#2d89ef',
   },
+  themeColor: '#121212',
 };
 export const viewport = {
   width: 'device-width',
   initialScale: 1.0,
 };
-export const themeColor = '#121212';
 export default function RootLayout({
   children,
 }: {
