@@ -14,7 +14,6 @@ export default function HomeLayout({ children }: Props) {
         <main className="flex-1">{children}</main>
       </div>
       <div className="mt-auto">
-        <Footer />
       </div>
     </div>
   );

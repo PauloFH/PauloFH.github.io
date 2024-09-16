@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import CustomHead from "../components/Head";
 import HomeLayout from "../components/HomeLayout";
 
 type Props = {};
@@ -8,7 +7,7 @@ type Props = {};
  const notFound = ({}: Props) => {
   return (
     <>
-      <CustomHead title="Paulo Holanda | Not Found" description="Page not found" />
+      
 
       <HomeLayout>
         <div className="flex flex-col items-center justify-center w-full h-full mt-32">

@@ -33,7 +33,7 @@ const Links = [
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "mailto:paulorfholanda@gmail.com?subject=Web portfolio",
     icon: HiMail,
   },
 ];

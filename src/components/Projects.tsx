@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import axios from 'axios';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { HiMail } from "react-icons/hi";
 
 interface Project {
   id: number;
@@ -10,8 +13,11 @@ interface Project {
   html_url: string;
   topics: string[];
   language: string | null;
-  updated_at: string; // Campo para armazenar a data de atualização
+  updated_at: string; 
 }
+
+const CACHE_KEY = 'projects_cache';
+const CACHE_EXPIRATION_MS = 1000 * 60 * 60; // 1 hora
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -25,33 +31,27 @@ const Projects: React.FC = () => {
     const fetchProjects = async () => {
       try {
         setIsLoading(true);
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        if (cachedData) {
+          const { projects, timestamp } = JSON.parse(cachedData);
+          const isCacheValid = new Date().getTime() - timestamp < CACHE_EXPIRATION_MS;
+          
+          if (isCacheValid) {
+            setProjects(projects);
+            generateTopicsAndLanguages(projects);
+            setIsLoading(false);
+            return;
+          }
+        }
+
         const response = await axios.get<Project[]>('https://api.github.com/users/PauloFH/repos?per_page=1000');
         const fetchedProjects = response.data;
 
         const sortedProjects = fetchedProjects.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
         setProjects(sortedProjects);
+        localStorage.setItem(CACHE_KEY, JSON.stringify({ projects: sortedProjects, timestamp: new Date().getTime() }));
 
-        const topicsMap: { [key: string]: Date } = {};
-        sortedProjects.forEach(project => {
-          project.topics.forEach(topic => {
-            if (!topicsMap[topic] || new Date(project.updated_at) > topicsMap[topic]) {
-              topicsMap[topic] = new Date(project.updated_at);
-            }
-          });
-        });
-        const uniqueTopics = Object.keys(topicsMap).sort((a, b) => topicsMap[b].getTime() - topicsMap[a].getTime());
-        setTopics(uniqueTopics);
-        
-        const languagesMap: { [key: string]: Date } = {};
-        sortedProjects.forEach(project => {
-          if (project.language) {
-            if (!languagesMap[project.language] || new Date(project.updated_at) > languagesMap[project.language]) {
-              languagesMap[project.language] = new Date(project.updated_at);
-            }
-          }
-        });
-        const uniqueLanguages = Object.keys(languagesMap).sort((a, b) => languagesMap[b].getTime() - languagesMap[a].getTime());
-        setLanguages(uniqueLanguages);
+        generateTopicsAndLanguages(sortedProjects);
       } catch (error: any) {
         console.error('Error fetching projects:', error);
         setError(new Error('Failed to load projects. Please try again later.'));
@@ -63,23 +63,51 @@ const Projects: React.FC = () => {
     fetchProjects();
   }, []);
 
+  const generateTopicsAndLanguages = (projects: Project[]) => {
+    const topicsMap: { [key: string]: Date } = {};
+    projects.forEach(project => {
+      project.topics.forEach(topic => {
+        if (!topicsMap[topic] || new Date(project.updated_at) > topicsMap[topic]) {
+          topicsMap[topic] = new Date(project.updated_at);
+        }
+      });
+    });
+    const uniqueTopics = Object.keys(topicsMap)
+      .sort((a, b) => topicsMap[b].getTime() - topicsMap[a].getTime())
+      .slice(0, 4);
+    setTopics(uniqueTopics);
+
+    const languagesMap: { [key: string]: Date } = {};
+    projects.forEach(project => {
+      if (project.language) {
+        if (!languagesMap[project.language] || new Date(project.updated_at) > languagesMap[project.language]) {
+          languagesMap[project.language] = new Date(project.updated_at);
+        }
+      }
+    });
+    const uniqueLanguages = Object.keys(languagesMap)
+      .sort((a, b) => languagesMap[b].getTime() - languagesMap[a].getTime())
+      .slice(0, 4);
+    setLanguages(uniqueLanguages);
+  };
+
   const handleTabClick = useCallback((tab: string) => {
     setActiveTab(tab);
   }, []);
 
   const displayedProjects = useMemo(() => {
-    return projects.filter((project) => {
+    const filteredProjects = projects.filter((project) => {
       if (activeTab === 'All') return true;
       if (topics.includes(activeTab)) return project.topics.includes(activeTab);
       return project.language === activeTab;
     });
+
+    return filteredProjects.slice(0, 12);
   }, [projects, activeTab, topics]);
 
   return (
-    <section id="projetos" className="py-12 bg-gray-100">
+    <section id="projetos" className="py-20 bg-background2">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-blue-950">Meus Projetos</h2>
-        
         {isLoading ? (
           <div className="text-center py-10">
             <p className="text-xl">Carregando projetos...</p>
@@ -92,7 +120,7 @@ const Projects: React.FC = () => {
           <>
             <div className="mb-6">
               <button 
-                className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === 'All' ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-700'}`}
+                className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === 'All' ? 'bg-black text-white' : 'bg-gray-200 text-gray-700'}`}
                 onClick={() => handleTabClick('All')}
               >
                 All
@@ -100,7 +128,7 @@ const Projects: React.FC = () => {
               {topics.map((topic) => (
                 <button 
                   key={topic}
-                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === topic ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-700'}`}
+                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === topic ? 'bg-black text-white' : 'bg-gray-200 text-gray-700'}`}
                   onClick={() => handleTabClick(topic)}
                 >
                   {topic}
@@ -109,7 +137,7 @@ const Projects: React.FC = () => {
               {languages.map((language) => (
                 <button 
                   key={language}
-                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === language ? 'bg-blue-900 text-white' : 'bg-gray-200 text-gray-700'}`}
+                  className={`mr-2 mb-2 px-4 py-2 rounded ${activeTab === language ? 'bg-black text-white' : 'bg-gray-200 text-gray-700'}`}
                   onClick={() => handleTabClick(language)}
                 >
                   {language}
@@ -119,11 +147,19 @@ const Projects: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {displayedProjects.map((project) => (
-                <div key={project.id} className="bg-blue-900 p-6 rounded shadow">
-                  <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-                  <p className="text-white mb-4">{project.description || 'No description'}</p>
+                <motion.div 
+                  key={project.id} 
+                  className="relative bg-black p-6 rounded shadow min-h-[350px] max-h-[400px]"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {/* Limitar o tamanho do título */}
+                  <h3 className="text-xl font-semibold mb-2 text-center max-w-[200px] truncate">{project.name}</h3>
+
+                  {/* Limitar a exibição a 3 tópicos */}
                   <div className="mb-4">
-                    {project.topics.map((topic) => (
+                    {project.topics.slice(0, 3).map((topic) => (
                       <span
                         key={topic}
                         className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
@@ -132,18 +168,27 @@ const Projects: React.FC = () => {
                       </span>
                     ))}
                   </div>
+                  
+                  {/* Descrição do projeto */}
+                  <p className="text-white mb-4 line-clamp-3 overflow-hidden">{project.description || 'No description'}</p>
+
+                  {/* Linguagem do projeto */}
                   <p className="text-xl text-white">
                     Language: {project.language || 'Not specified'}
                   </p>
-                  <a
-                      href={project.html_url}
-                      className="block w-full text-center bg-white text-blue-900 font-bold py-2 px-4 rounded hover:bg-blue-100 transition duration-300"
-                      target="_blank"
-                      rel="noopener noreferrer"
+
+                  {/* Botão centralizado e menor */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center">
+                    <Link 
+                      className="flex justify-center items-center px-2 py-1 space-x-1 text-xs font-bold border-2 rounded-md cursor-pointer sm:px-3 sm:py-1 md:text-base bg-background border-blue-400" 
+                      href={project.html_url} 
+                      passHref
                     >
-                      Ver no GitHub
-                    </a>
-                </div>
+                      <HiMail className="fill-blue-400" />
+                      <span className="text-blue-400">See in Github</span>
+                    </Link>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </>

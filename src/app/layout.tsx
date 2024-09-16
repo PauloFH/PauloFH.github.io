@@ -3,28 +3,39 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: 'Paulo Holanda',
-  description: 'Portfólio de Paulo Holanda',
-  icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png' },
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-      },
-    ],
+export const metadata = {
+  title: 'Paulo Holanda Developer',
+  description: 'Desenvolvedor Paulo Holanda, especializado em software.',
+  openGraph: {
+    locale: 'en',
+    type: 'website',
+    title: 'Paulo Holanda Developer',
+    description: 'Desenvolvedor Paulo Holanda, especializado em software.',
+    siteName: 'Paulo Holanda Developer',
   },
-  
-}
+  twitter: {
+    title: 'Paulo Holanda Developer',
+    description: 'Desenvolvedor Paulo Holanda, especializado em software.',
+  },
+  keywords: ['Paulo Holanda', 'Paulo Holanda Developer'],
+  icons: {
+    apple: '/apple-touch-icon.png',
+    icon: [
+      { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32' },
+      { rel: 'icon', url: '/favicon-16x16.png', sizes: '16x16' },
+    ],
+    maskIcon: { url: '/safari-pinned-tab.svg', color: '#5bbad5' },
+  },
+  manifest: '/site.webmanifest',
+  msapplication: {
+    TileColor: '#2d89ef',
+  },
+};
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+};
+export const themeColor = '#121212';
 export default function RootLayout({
   children,
 }: {
