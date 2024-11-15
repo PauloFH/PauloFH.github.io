@@ -713,9 +713,7 @@ const Home: NextPage = () => {
                         September 2024 - Now
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      I have experience in Django backend development in my internship,
-                      using Agile methodologies, Large Project Architecture and DevOps to
-                      facilitate development and deployment. 
+                     
                       </p>
                     </motion.div>
                   </li>
