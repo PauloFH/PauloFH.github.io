@@ -158,9 +158,9 @@ const Home: NextPage = () => {
                 <AboutMeItem
                   text={
                     <>
-                      I had work experience during research and development
-                      work at the university, in which I dealt with a market
-                      team model using scrum.{" "}
+                      I have experience in Django backend development in my internship,
+                      using Agile methodologies, Large Project Architecture and DevOps to
+                      facilitate development and deployment.{" "}
                     </>
                   }
                   title="Work experiences"
@@ -210,31 +210,34 @@ const Home: NextPage = () => {
                 <Headline2 text="Education" />
                 <ol className="mx-3 mt-12 sm:flex">
                   <li className="relative flex-1 mb-6 sm:mb-0">
-                    <div className="flex items-center">
-                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
-                        <HiAcademicCap className="fill-blue-900" />
-                      </div>
-                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                  <div className="flex items-center">
+                    <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
+                      <HiAcademicCap className="fill-blue-900" />
                     </div>
-                    <motion.div
-                      className="mt-3 sm:pr-8"
-                      whileInView={{ opacity: 1, translateY: 0 }}
-                      viewport={{ once: true }}
-                      initial={{ opacity: 0, translateY: 30 }}
-                      transition={{ duration: 0.2, delay: 0.2 }}
-                    >
-                      <h3 className="text-lg font-semibold text-white">
-                        UFRN
-                      </h3>
-                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        February 2024 - Now
-                      </time>
-                      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                        Studying Computer Science, I was transferred from UFERSA
-                        in search of more knowledge and personal networking
-                      </p>
-                    </motion.div>
-                  </li>
+                    <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                  </div>
+                  <motion.div
+                    className="mt-3 sm:pr-8"
+                    whileInView={{ opacity: 1, translateY: 0 }}
+                    viewport={{ once: true }}
+                    initial={{ opacity: 0, translateY: 30 }}
+                    transition={{
+                      duration: 0.2,
+                      delay: isMobile ? 0.2 : 1.4,
+                    }}
+                  >
+                    <h3 className="text-lg font-semibold text-white">
+                      UFRN
+                    </h3>
+                    <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                      February 2024 - Now
+                    </time>
+                    <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                      Studying Computer Science, I was transferred from UFERSA 
+                      in search of more knowledge and personal networking.
+                    </p>
+                  </motion.div>
+                </li>
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
                       <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
@@ -249,7 +252,7 @@ const Home: NextPage = () => {
                       initial={{ opacity: 0, translateY: 30 }}
                       transition={{
                         duration: 0.2,
-                        delay: isMobile ? 0.2 : 0.6,
+                        delay: isMobile ? 0.2 : 1.2,
                       }}
                     >
                       <h3 className="text-lg font-semibold text-white">
@@ -259,7 +262,7 @@ const Home: NextPage = () => {
                         October 2023 - November 2023
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                        In the Hacktruck Course, I learned
+                      In the Hacktruck Course, I learned
                         Cloud Services Practices using Swift
                         with an emphasis on Cognitive Services,
                         programming a project called Petcare.
@@ -280,7 +283,7 @@ const Home: NextPage = () => {
                       initial={{ opacity: 0, translateY: 30 }}
                       transition={{
                         duration: 0.2,
-                        delay: isMobile ? 0.2 : 0.4,
+                        delay: isMobile ? 0.2 : 1.0,
                       }}
                     >
                       <h3 className="text-lg font-semibold text-white">
@@ -290,9 +293,9 @@ const Home: NextPage = () => {
                         February 2024 - January 2021
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                        At UFERSA, I started my studies in Bachelor of Computer Science,
+                      At UFERSA, I started my studies in Bachelor of Computer Science,
                         trying to understand all the available areas and looking for one that I liked to study.
-                      </p>
+                     </p>
                     </motion.div>
                   </li>
 
@@ -338,7 +341,7 @@ const Home: NextPage = () => {
                       initial={{ opacity: 0, translateY: 30 }}
                       transition={{
                         duration: 0.2,
-                        delay: isMobile ? 0.2 : 1.0,
+                        delay: isMobile ? 0.2 : 0.6,
                       }}
                     >
                       <h3 className="text-lg font-semibold text-white">
@@ -348,7 +351,7 @@ const Home: NextPage = () => {
                         September 2020 - January 2021
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                        I participated in the Electronic Game Developer 2020.3 extension course held by UFRN
+                      I participated in the Electronic Game Developer 2020.3 extension course held by UFRN
                       </p>
                     </motion.div>
                   </li>
@@ -586,11 +589,11 @@ const Home: NextPage = () => {
               <div className="flex flex-row flex-wrap items-center justify-between">
                 <Skill
                   icon={
-                    
+
                     <svg viewBox="0 0 128 128" height="26">
-                    <path fill="#FFFFFF" d="M64 0A64 64 0 0 0 0 64a64 64 0 0 0 64 64 64 64 0 0 0 35.508-10.838L47.014 49.34v40.238H38.4V38.4h10.768l57.125 73.584A64 64 0 0 0 128 64 64 64 0 0 0 64 0Zm17.777 38.4h8.534v48.776L81.777 75.97Zm24.18 73.92-.111.096a64 64 0 0 0 .111-.096z"></path>
+                      <path fill="#FFFFFF" d="M64 0A64 64 0 0 0 0 64a64 64 0 0 0 64 64 64 64 0 0 0 35.508-10.838L47.014 49.34v40.238H38.4V38.4h10.768l57.125 73.584A64 64 0 0 0 128 64 64 64 0 0 0 64 0Zm17.777 38.4h8.534v48.776L81.777 75.97Zm24.18 73.92-.111.096a64 64 0 0 0 .111-.096z"></path>
                     </svg>
-          
+
                   }
                   name="NextJS"
                   percentage={75}
@@ -673,11 +676,12 @@ const Home: NextPage = () => {
                 />
                 <Skill
                   icon={
-                        <svg viewBox="0 0 128 128" width="26">
-                        <path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0" fill="#38bdf8"></path>
-                        </svg>
+                    <svg viewBox="0 0 128 128" width="24" height="24">
+                      <path d="M59.448 0h20.93v96.88c-10.737 2.04-18.62 2.855-27.181 2.855-25.551-.001-38.87-11.551-38.87-33.705 0-21.338 14.135-35.2 36.015-35.2 3.398 0 5.98.272 9.106 1.087zm0 48.765c-2.446-.815-4.485-1.086-7.067-1.086-10.6 0-16.717 6.523-16.717 17.939 0 11.145 5.845 17.26 16.582 17.26 2.309 0 4.212-.136 7.202-.542z" fill="white"></path>
+                      <path d="M113.672 32.321V80.84c0 16.717-1.224 24.735-4.893 31.666-3.398 6.661-7.883 10.873-17.124 15.494l-19.435-9.241c9.242-4.35 13.726-8.153 16.58-14 2.99-5.979 3.943-12.91 3.943-31.122V32.321zM92.742.111h20.93v21.474h-20.93z" fill="white"></path>
+                    </svg>
                   }
-                  name="Tailwind"
+                  name="Django"
                   percentage={80}
                 />
               </div>
@@ -700,116 +704,22 @@ const Home: NextPage = () => {
                       whileInView={{ opacity: 1, translateY: 0 }}
                       viewport={{ once: true }}
                       initial={{ opacity: 0, translateY: 30 }}
-                      transition={{ duration: 0.2, delay: 0.2 }}
+                      transition={{ duration: 0.2, delay: 1.4 }}
                     >
                       <h3 className="text-lg font-semibold text-white">
-                      freelance web programming
+                        backend developer internship
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        Junuary 2021 - November 2021
+                        September 2024 - Now
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-
+                      I have experience in Django backend development in my internship,
+                      using Agile methodologies, Large Project Architecture and DevOps to
+                      facilitate development and deployment. 
                       </p>
                     </motion.div>
                   </li>
 
-                  <li className="relative flex-1 mb-6 sm:mb-0">
-                    <div className="flex items-center">
-                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
-                        <HiCode className="fill-blue-900" />
-                      </div>
-                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                    </div>
-                    <motion.div
-                      className="mt-3 sm:pr-8"
-                      whileInView={{ opacity: 1, translateY: 0 }}
-                      viewport={{ once: true }}
-                      initial={{ opacity: 0, translateY: 30 }}
-                      transition={{ duration: 0.2, delay: 0.4 }}
-                    >
-                      <h3 className="text-lg font-semibold text-white">
-                      administrative assistant in FAN
-                      </h3>
-                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        may 2022 - July 2023
-                      </time>
-                      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-
-                      </p>
-                    </motion.div>
-                  </li>
-                  <li className="relative flex-1 mb-6 sm:mb-0">
-                    <div className="flex items-center">
-                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
-                        <HiCode className="fill-blue-900" />
-                      </div>
-                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                    </div>
-                    <motion.div
-                      className="mt-3 sm:pr-8"
-                      whileInView={{ opacity: 1, translateY: 0 }}
-                      viewport={{ once: true }}
-                      initial={{ opacity: 0, translateY: 30 }}
-                      transition={{ duration: 0.2, delay: 0.6 }}
-                    >
-                      <h3 className="text-lg font-semibold text-white">
-                      PEGAZULS Aerodesign
-                      </h3>
-                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        Abril 2022 - August 2022
-                      </time>
-                      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      </p>
-                    </motion.div>
-                  </li>
-                  <li className="relative flex-1 mb-6 sm:mb-0">
-                    <div className="flex items-center">
-                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
-                        <HiCode className="fill-blue-900" />
-                      </div>
-                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                    </div>
-                    <motion.div
-                      className="mt-3 sm:pr-8"
-                      whileInView={{ opacity: 1, translateY: 0 }}
-                      viewport={{ once: true }}
-                      initial={{ opacity: 0, translateY: 30 }}
-                      transition={{ duration: 0.2, delay: 0.8 }}
-                    >
-                      <h3 className="text-lg font-semibold text-white">
-                      Front-End Programmer
-                      </h3>
-                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        September 2022 - August 2023
-                      </time>
-                      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      </p>
-                    </motion.div>
-                  </li>
-                  <li className="relative flex-1 mb-6 sm:mb-0">
-                    <div className="flex items-center">
-                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
-                        <HiCode className="fill-blue-900" />
-                      </div>
-                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                    </div>
-                    <motion.div
-                      className="mt-3 sm:pr-8"
-                      whileInView={{ opacity: 1, translateY: 0 }}
-                      viewport={{ once: true }}
-                      initial={{ opacity: 0, translateY: 30 }}
-                      transition={{ duration: 0.2, delay: 1.0 }}
-                    >
-                      <h3 className="text-lg font-semibold text-white">
-                        Robótica nas Escolas Pensare
-                      </h3>
-                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        Junuary 2023 - November 2023
-                      </time>
-                      <p className="text-base font-normal text-gray-500 dark:text-gray-400"></p>
-                    </motion.div>
-                  </li>
                   <li className="relative flex-1 mb-6 sm:mb-0">
                     <div className="flex items-center">
                       <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
@@ -828,7 +738,127 @@ const Home: NextPage = () => {
                         Back End Programmer
                       </h3>
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        August 2023 - Octuber 2023
+                        August 2023 - October 2023
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400"></p>
+                    </motion.div>
+                  </li>
+
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-blue-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{ duration: 0.2, delay: 1.0 }}
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        Robótica nas Escolas Pensare
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        January 2023 - November 2023
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400"></p>
+                    </motion.div>
+                  </li>
+
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-blue-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{ duration: 0.2, delay: 0.8 }}
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        Front-End Programmer
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        September 2022 - August 2023
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400"></p>
+                    </motion.div>
+                  </li>
+
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-blue-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{ duration: 0.2, delay: 0.6 }}
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        PEGAZULS Aerodesign
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        April 2022 - August 2022
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400"></p>
+                    </motion.div>
+                  </li>
+
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-blue-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{ duration: 0.2, delay: 0.4 }}
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        administrative assistant in FAN
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        May 2022 - July 2023
+                      </time>
+                      <p className="text-base font-normal text-gray-500 dark:text-gray-400"></p>
+                    </motion.div>
+                  </li>
+
+                  <li className="relative flex-1 mb-6 sm:mb-0">
+                    <div className="flex items-center">
+                      <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0 bg-blue-400 sm:ring-8 ring-gray-800 shrink-0">
+                        <HiCode className="fill-blue-900" />
+                      </div>
+                      <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+                    </div>
+                    <motion.div
+                      className="mt-3 sm:pr-8"
+                      whileInView={{ opacity: 1, translateY: 0 }}
+                      viewport={{ once: true }}
+                      initial={{ opacity: 0, translateY: 30 }}
+                      transition={{ duration: 0.2, delay: 0.2 }}
+                    >
+                      <h3 className="text-lg font-semibold text-white">
+                        freelance web programming
+                      </h3>
+                      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        January 2021 - November 2021
                       </time>
                       <p className="text-base font-normal text-gray-500 dark:text-gray-400"></p>
                     </motion.div>
